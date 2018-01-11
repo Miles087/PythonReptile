@@ -5,11 +5,19 @@
 * requests 第三方包
 """
 import urllib2
-#创建Request对象
-request = urllib2.Request("https://www.taobao.com/")
-#添加数据
-#request.add_data('a','1')
-#添加http的header
-request.add_header('User-Agent','Mozilla/5.0')
-#发送请求获取结果
-response = urllib2.urlopen(request)
+
+url = "http://www.baidu.com"
+print (u"第一种方法")
+response1 = urllib2.urlopen(url)
+print response1.getcode()
+print len(response1.read())
+
+print (u"第二种方法")
+request2 = urllib2.Request(url)
+request2.add_header("user-agent","Mozilla/5.0")
+response2 = urllib2.urlopen(request2)
+print response1.getcode()
+print len(response1.read())
+
+
+print(u"第三种方法")
